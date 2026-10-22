@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>AI Launchpad | K-12 Student Learning & Research Portal</title>
+  <meta name="description" content="A curated, modern directory of free learning resources, student communities, first events, and recent AI research breakthroughs for Elementary, Middle, and High School students.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%23c25e38%22/><text x=%2250%22 y=%2258%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2240%22 fill=%22white%22>AI</text></svg>">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#" class="logo-area">
+        <div class="logo-mark">A</div>
+        <div class="logo-text">AI<span>Launchpad</span></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links">
+        <a href="#stages" data-i18n="nav_pathways">Learning Pathways</a>
+        <a href="#hack-the-hood" data-i18n="nav_hackthehood">Hack the Hood</a>
+        <a href="#event" data-i18n="nav_event">First Milestone</a>
+        <a href="#communities" data-i18n="nav_communities">Communities</a>
+        <a href="#resources" data-i18n="nav_resources">Resources</a>
+        <a href="#research" data-i18n="nav_research">Research</a>
+        <a href="#game" data-i18n="nav_game">Daily Game</a>
+        <a href="#generator" data-i18n="nav_generator">Project Generator</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Selector -->
+        <div class="lang-select-wrapper">
+          <select id="lang-select" class="lang-select" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="hi">हिन्दी</option>
+            <option value="zh-yue">粵語</option>
+          </select>
+        </div>
+
+        <button id="bookmarks-toggle-btn" class="icon-btn" aria-label="Open saved items" title="Saved Items">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+          </svg>
+          <span id="bookmark-badge-counter" class="badge-counter" style="display: none;">0</span>
+        </button>
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle theme" title="Switch theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          &#9776;
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-nav-menu" class="mobile-nav-menu" aria-label="Mobile navigation">
+    <a href="#stages" data-i18n="nav_pathways">Learning Pathways (Grades 1-12)</a>
+    <a href="#hack-the-hood" data-i18n="nav_hackthehood">Hack the Hood Spotlight</a>
+    <a href="#event" data-i18n="nav_event">First Milestone Event</a>
+    <a href="#communities" data-i18n="nav_communities">Developer Communities</a>
+    <a href="#resources" data-i18n="nav_resources">Learning Resources</a>
+    <a href="#research" data-i18n="nav_research">AI Research & Developments</a>
+    <a href="#game" data-i18n="nav_game">Daily AI Game</a>
+    <a href="#generator" data-i18n="nav_generator">Project Blueprint Generator</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill">
+        <span data-i18n="hero_pill">Curated for Grades 1 through 12</span>
+      </div>
+
+      <h1 class="hero-title" data-i18n="hero_title">
+        A thoughtful pathway to understanding and building <span class="highlight">Artificial Intelligence</span>.
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        Free educational tools, student developer communities, accessible hackathons, and recent research breakthroughs translated into plain language.
+      </p>
+
+      <!-- Stage Selector Strip -->
+      <div class="stage-selector-wrapper">
+        <span class="stage-selector-label">Select Learning Stage</span>
+        <div class="stage-selector-container">
+          <button class="stage-btn" data-stage="elem">
+            <span data-i18n="btn_elem">Elementary</span>
+            <span class="stage-grade" data-i18n="sub_elem">Grades 1-5</span>
+          </button>
+          <button class="stage-btn" data-stage="mid">
+            <span data-i18n="btn_mid">Middle School</span>
+            <span class="stage-grade" data-i18n="sub_mid">Grades 6-8</span>
+          </button>
+          <button class="stage-btn" data-stage="high">
+            <span data-i18n="btn_high">High School</span>
+            <span class="stage-grade" data-i18n="sub_high">Grades 9-12</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">100% Free</span>
+          <span class="stat-label">Open Resources</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Grades 1–12</span>
+          <span class="stat-label">Aligned Stages</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Mentored</span>
+          <span class="stat-label">Supportive Spaces</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Research</span>
+          <span class="stat-label">Clear Summaries</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Fact of the Day Section -->
+  <section class="fact-of-day-section">
+    <div class="container">
+      <div class="fact-card">
+        <div class="fact-header">
+          <span class="fact-badge" data-i18n="fact_tag">AI Fact of the Day</span>
+          <span id="fact-date" class="fact-date">Today</span>
+        </div>
+        <h3 id="fact-headline" class="fact-headline">Loading daily AI fact...</h3>
+        <p id="fact-body" class="fact-body">Explore verified historical facts and breakthroughs in artificial intelligence.</p>
+        <div class="fact-footer">
+          <span id="fact-source" class="fact-source">Source: Historical Archives</span>
+          <div class="fact-nav-controls">
+            <button class="fact-nav-btn" onclick="prevFact()" data-i18n="fact_prev">Previous Fact</button>
+            <button class="fact-nav-btn" onclick="nextFact()" data-i18n="fact_next">Next Fact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: K-12 Stage Pathways -->
+  <section id="stages" class="container" style="padding-top: 1rem;">
+    <div class="section-header text-center">
+      <span class="section-tag">Curriculum Matrix</span>
+      <h2 class="section-title">Age-Appropriate Learning Pathways</h2>
+      <p class="section-subtitle">
+        Structured milestones designed to cultivate technical curiosity gradually from visual interfaces to practical software engineering.
+      </p>
+    </div>
+
+    <div class="stage-matrix-grid">
+      <!-- Elementary School (1st - 5th) -->
+      <div class="stage-matrix-card">
+        <span class="stage-card-badge badge-elem">Elementary (Grades 1-5)</span>
+        <h3>Visual Foundations & Pattern Recognition</h3>
+        <div class="stage-card-persona">Focus: Conceptual intuition through interactive tools</div>
+        <p style="font-size: 0.88rem; margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.5;">
+          Young learners discover how machine learning recognizes drawings, audio inputs, and images. They explore how training data shapes model decisions.
+        </p>
+        <ul class="stage-checklist-items">
+          <li><strong>Google Quick, Draw!:</strong> Real-time neural network doodle recognition.</li>
+          <li><strong>Code.org AI for Oceans:</strong> Interactive simulation of data labeling and bias.</li>
+          <li><strong>Machine Learning for Kids:</strong> Connecting custom classifiers into Scratch projects.</li>
+        </ul>
+      </div>
+
+      <!-- Middle School (6th - 8th) -->
+      <div class="stage-matrix-card">
+        <span class="stage-card-badge badge-mid">Middle School (Grades 6-8)</span>
+        <h3>Mobile Applications & Logic Systems</h3>
+        <div class="stage-card-persona">Focus: Functional applications and logic bridging</div>
+        <p style="font-size: 0.88rem; margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.5;">
+          Students build interactive applications that run on mobile devices, train webcam classifiers, and begin foundational programming logic.
+        </p>
+        <ul class="stage-checklist-items">
+          <li><strong>MIT App Inventor:</strong> Building vision-enabled smartphone apps with visual blocks.</li>
+          <li><strong>Google Teachable Machine:</strong> Training image, audio, and pose models in-browser.</li>
+          <li><strong>Elements of AI:</strong> Conceptual introduction to search, probability, and ethics.</li>
+        </ul>
+      </div>
+
+      <!-- High School (9th - 12th) -->
+      <div class="stage-matrix-card">
+        <span class="stage-card-badge badge-high">High School (Grades 9-12)</span>
+        <h3>Code Implementation & Capstone Projects</h3>
+        <div class="stage-card-persona">Focus: Python scripting, neural networks & portfolio builds</div>
+        <p style="font-size: 0.88rem; margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.5;">
+          Students implement algorithms in Python, train neural networks using PyTorch, participate in hackathons, and build portfolio pieces.
+        </p>
+        <ul class="stage-checklist-items">
+          <li><strong>Harvard CS50 AI:</strong> Foundations of search, knowledge representation, and machine learning.</li>
+          <li><strong>Fast.ai Deep Learning:</strong> Top-down practical neural network training.</li>
+          <li><strong>Hack the Hood & Hack Club:</strong> Youth cohorts, developer fellowships, and collaborative hackathons.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hack the Hood Spotlight Banner -->
+    <div id="hack-the-hood" class="hth-banner">
+      <div>
+        <div class="hth-badge">Featured Organization</div>
+        <h3 class="hth-title">Hack the Hood: Pathways in Tech & Data Literacy</h3>
+        <p class="hth-desc">
+          <strong>Hack the Hood</strong> is a nonprofit organization providing underrepresented youth and young adults (ages 14-25) with foundational training in data literacy, Python, and artificial intelligence. Participants receive complimentary laptops, tech stipends, and dedicated industry mentorship to support their technical trajectory.
+        </p>
+        <div class="hth-perks">
+          <span>Complimentary Hardware & Stipends</span>
+          <span>1-on-1 Industry Mentorship</span>
+          <span>Structured Learning Cohorts</span>
+          <span>College & Career Pathways</span>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.hackthehood.org/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Learn More About Hack the Hood &nearr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Welcoming First Milestone Event -->
+  <section id="event" class="event-spotlight-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">First Milestone</span>
+        <h2 class="section-title">Accessible Events for Early Builders</h2>
+        <p class="section-subtitle">
+          Participating in your first event should be an encouraging, low-friction milestone. Here are supportive programs designed specifically for students.
+        </p>
+      </div>
+
+      <div class="event-hero-banner">
+        <div class="event-content">
+          <div>
+            <div class="event-tag">Recommended Starting Challenge</div>
+            <h3 class="event-title">Microsoft Imagine Cup Junior & Kaggle Beginner Sprint</h3>
+            <p class="event-desc">
+              Designed for students ages 13 through 18. Participants formulate an artificial intelligence concept that addresses environmental or social challenges, supported by structured curriculum guides and low technical barriers.
+            </p>
+
+            <div class="event-highlights">
+              <div class="event-highlight-item">Ages 13-18 Eligible</div>
+              <div class="event-highlight-item">Guided Curriculum Included</div>
+              <div class="event-highlight-item">Solo or Teams of 1-5</div>
+              <div class="event-highlight-item">No Entry Fee</div>
+            </div>
+
+            <div class="event-actions">
+              <a href="https://imaginecup.microsoft.com/en-us/junior" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Explore Imagine Cup Junior &nearr;
+              </a>
+              <a href="https://www.kaggle.com/c/titanic" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                Try Kaggle Titanic Starter &nearr;
+              </a>
+            </div>
+          </div>
+
+          <!-- 30-Day Checklist -->
+          <div class="event-sidebar-card">
+            <div class="event-sidebar-title">First 30-Day Milestone Tracker</div>
+            <div style="margin-bottom: 0.75rem;">
+              <div style="background: var(--bg-card); height: 6px; border-radius: 3px; overflow: hidden; margin-bottom: 0.35rem;">
+                <div id="checklist-progress-fill" style="background: var(--accent-secondary); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
+              </div>
+              <div id="checklist-progress-text" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">
+                0 of 5 milestones completed
+              </div>
+            </div>
+
+            <ul class="step-checklist">
+              <li class="step-item">
+                <input type="checkbox" class="step-checkbox" id="check-1">
+                <label for="check-1" class="step-text"><strong>Day 1:</strong> Try an interactive demo such as Google Quick, Draw!.</label>
+              </li>
+              <li class="step-item">
+                <input type="checkbox" class="step-checkbox" id="check-2">
+                <label for="check-2" class="step-text"><strong>Day 5:</strong> Train an image classifier in Google Teachable Machine.</label>
+              </li>
+              <li class="step-item">
+                <input type="checkbox" class="step-checkbox" id="check-3">
+                <label for="check-3" class="step-text"><strong>Day 12:</strong> Join Hack Club Slack or explore Hack the Hood cohorts.</label>
+              </li>
+              <li class="step-item">
+                <input type="checkbox" class="step-checkbox" id="check-4">
+                <label for="check-4" class="step-text"><strong>Day 20:</strong> Build a Scratch AI project or run a Kaggle notebook.</label>
+              </li>
+              <li class="step-item">
+                <input type="checkbox" class="step-checkbox" id="check-5">
+                <label for="check-5" class="step-text"><strong>Day 30:</strong> Submit an application to Imagine Cup Junior or a local hackathon.</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Events -->
+      <div class="alt-events-grid">
+        <div class="event-sub-card">
+          <h4>Hour of Code: AI for Oceans</h4>
+          <p>
+            Well-suited for elementary and middle school students. A self-contained 45-minute activity teaching training data concepts through ocean conservation.
+          </p>
+          <div class="event-meta">
+            <span>Eligibility: Grades 1-8</span>
+            <a href="https://code.org/oceans" target="_blank" rel="noopener noreferrer">Start Activity &nearr;</a>
+          </div>
+        </div>
+
+        <div class="event-sub-card">
+          <h4>Hack Club Hackathons</h4>
+          <p>
+            Community hackathons organized by and for high schoolers. Focuses on creative software exploration with hardware grants, peer collaboration, and mentorship.
+          </p>
+          <div class="event-meta">
+            <span>Eligibility: Ages 13-18</span>
+            <a href="https://hackclub.com/hackathons/" target="_blank" rel="noopener noreferrer">View Events &nearr;</a>
+          </div>
+        </div>
+
+        <div class="event-sub-card">
+          <h4>Congressional App Challenge</h4>
+          <p>
+            An established initiative for US middle and high school students to build and present software applications to their district's congressional representative.
+          </p>
+          <div class="event-meta">
+            <span>Eligibility: US Grades 6-12</span>
+            <a href="https://www.congressionalappchallenge.us/" target="_blank" rel="noopener noreferrer">Details &nearr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Technical Communities -->
+  <section id="communities" class="community-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Collaborative Spaces</span>
+        <h2 class="section-title">Supportive Technical Communities</h2>
+        <p class="section-subtitle">
+          Moderated technical communities centered around constructive problem-solving, structured feedback, and peer mentorship.
+        </p>
+      </div>
+
+      <div class="community-grid">
+        <!-- Hack the Hood -->
+        <div class="community-card">
+          <div class="community-header">
+            <h3>Hack the Hood</h3>
+            <div class="community-type">Youth Cohorts & Tech Programs</div>
+          </div>
+          <p>
+            A non-profit community providing underrepresented youth with data literacy training, tech access, and industry mentors in an encouraging environment.
+          </p>
+          <div class="community-perks">
+            <div class="perk-item">Complimentary laptop and tech stipend support</div>
+            <div class="perk-item">Small cohort structure with individual tech mentors</div>
+          </div>
+          <a href="https://www.hackthehood.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="margin-top: auto;">
+            Visit Hack the Hood &nearr;
+          </a>
+        </div>
+
+        <!-- Hack Club -->
+        <div class="community-card">
+          <div class="community-header">
+            <h3>Hack Club Slack</h3>
+            <div class="community-type">High School Developer Network</div>
+          </div>
+          <p>
+            A global community of teenage developers sharing ongoing builds in dedicated channels for artificial intelligence, open-source code, and hardware.
+          </p>
+          <div class="community-perks">
+            <div class="perk-item">Channels for #ai, #code, and #ship</div>
+            <div class="perk-item">Peer support and micro-grants for student projects</div>
+          </div>
+          <a href="https://hackclub.com/slack/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="margin-top: auto;">
+            Join Hack Club Slack &nearr;
+          </a>
+        </div>
+
+        <!-- Kaggle Discussion Forums -->
+        <div class="community-card">
+          <div class="community-header">
+            <h3>Kaggle Discussion Forums</h3>
+            <div class="community-type">Student &amp; Beginner ML Forum</div>
+          </div>
+          <p>
+            A welcoming web-based platform where learners share code notebooks, ask machine learning questions, and participate in newcomer-friendly competitions.
+          </p>
+          <div class="community-perks">
+            <div class="perk-item">Dedicated 'Getting Started' and 'Questions' sub-forums</div>
+            <div class="perk-item">Inspect, fork, and learn from thousands of public student notebooks</div>
+          </div>
+          <a href="https://www.kaggle.com/discussion" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="margin-top: auto;">
+            Visit Kaggle Discussions &nearr;
+          </a>
+        </div>
+
+        <!-- Fast.ai -->
+        <div class="community-card">
+          <div class="community-header">
+            <h3>Fast.ai Forums</h3>
+            <div class="community-type">Pedagogical Discussion Forum</div>
+          </div>
+          <p>
+            An established educational discourse forum known for detailed technical explanations, high moderation standards, and patient mentorship.
+          </p>
+          <div class="community-perks">
+            <div class="perk-item">Detailed code and mathematical discussions</div>
+            <div class="perk-item">Welcoming to learners working through foundational courses</div>
+          </div>
+          <a href="https://forums.fast.ai/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="margin-top: auto;">
+            Visit Fast.ai Forums &nearr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Guidelines Box -->
+      <div class="guideline-box">
+        <h4>Community Best Practice for Student Developers</h4>
+        <p>
+          When asking technical questions in developer communities, provide a concise summary of what you are building, the code or notebook link, and the specific error message encountered. Clear, thoughtful questions receive prompt and helpful responses from mentors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Learning Resources Catalog -->
+  <section id="resources" class="resources-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Learning Catalog</span>
+        <h2 class="section-title">Curated Free Learning Resources</h2>
+        <p class="section-subtitle">
+          Zero-cost tutorials, simulators, and video series spanning elementary visual block tools to high school neural network implementations.
+        </p>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="search-filter-bar">
+        <div class="search-input-wrapper">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Search resources by keyword, topic, or provider...">
+        </div>
+
+        <div class="filter-pills-row">
+          <button class="filter-pill active" data-category="all">All Topics</button>
+          <button class="filter-pill" data-category="tools">Visual & Interactive Tools</button>
+          <button class="filter-pill" data-category="python">Python Programming</button>
+          <button class="filter-pill" data-category="ml">Machine Learning</button>
+          <button class="filter-pill" data-category="deeplearning">Deep Learning</button>
+          <button class="filter-pill" data-category="math">Mathematics for AI</button>
+          <button class="filter-pill" data-category="genai">Generative AI & LLMs</button>
+
+          <span id="resource-count-badge" class="resource-count-badge">Loading resources...</span>
+        </div>
+      </div>
+
+      <!-- Resources Dynamic Grid -->
+      <div id="resources-container" class="resources-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Recent AI Research Articles -->
+  <section id="research" class="research-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Developments</span>
+        <h2 class="section-title">Recent AI Research & Developments</h2>
+        <p class="section-subtitle">
+          Important machine learning publications accompanied by a plain-language <strong>Student Preface</strong> describing the practical significance of each breakthrough.
+        </p>
+      </div>
+
+      <!-- Search & Category Filters -->
+      <div class="research-search-bar">
+        <div class="search-input-wrapper">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" id="paper-search-input" class="search-input" placeholder="Search research by title, author, or concept (e.g., DeepSeek, AlphaFold, reasoning, attention)...">
+        </div>
+
+        <div class="filter-pills-row">
+          <button class="filter-pill paper-filter-pill active" data-paper-category="all">All Research</button>
+          <button class="filter-pill paper-filter-pill" data-paper-category="reasoning">Reasoning & Logic</button>
+          <button class="filter-pill paper-filter-pill" data-paper-category="science">Science & Medicine</button>
+          <button class="filter-pill paper-filter-pill" data-paper-category="architecture">Architecture & Efficiency</button>
+          <button class="filter-pill paper-filter-pill" data-paper-category="safety">Safety & Alignment</button>
+          <button class="filter-pill paper-filter-pill" data-paper-category="llms">Foundation Models</button>
+
+          <span id="papers-count-badge" class="resource-count-badge">Loading articles...</span>
+        </div>
+      </div>
+
+      <!-- Research Papers Dynamic Grid -->
+      <div id="papers-container" class="papers-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Daily AI Wordle Game ("AI Termle") -->
+  <section id="game" class="wordle-section">
+    <div class="container">
+      <div class="wordle-card">
+        <div class="wordle-header">
+          <span class="wordle-tag" data-i18n="game_tag">Daily Knowledge Challenge</span>
+          <h2 class="wordle-title" data-i18n="game_title">Daily AI Termle</h2>
+          <p class="wordle-subtitle" data-i18n="game_subtitle">Guess today's 5-letter AI concept in 6 attempts.</p>
+        </div>
+
+        <div class="wordle-top-bar">
+          <span style="color: var(--text-muted); font-size: 0.8rem;">Daily Refresh</span>
+          <button id="wordle-clue-btn" class="btn btn-secondary btn-sm" onclick="toggleWordleClue()" data-i18n="btn_show_clue">
+            Show Clue
+          </button>
+        </div>
+
+        <!-- Clue Reveal Box -->
+        <div id="wordle-hint-box" class="wordle-hint-box">
+          <span data-i18n="game_hint_prefix">Clue: </span>
+          <span id="wordle-clue-text">Loading clue...</span>
+        </div>
+
+        <!-- 6x5 Board Grid -->
+        <div id="wordle-board" class="wordle-board">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Virtual Keyboard -->
+        <div class="wordle-keyboard" id="wordle-keyboard">
+          <div class="keyboard-row">
+            <button class="key-btn" data-key="Q">Q</button>
+            <button class="key-btn" data-key="W">W</button>
+            <button class="key-btn" data-key="E">E</button>
+            <button class="key-btn" data-key="R">R</button>
+            <button class="key-btn" data-key="T">T</button>
+            <button class="key-btn" data-key="Y">Y</button>
+            <button class="key-btn" data-key="U">U</button>
+            <button class="key-btn" data-key="I">I</button>
+            <button class="key-btn" data-key="O">O</button>
+            <button class="key-btn" data-key="P">P</button>
+          </div>
+          <div class="keyboard-row">
+            <button class="key-btn" data-key="A">A</button>
+            <button class="key-btn" data-key="S">S</button>
+            <button class="key-btn" data-key="D">D</button>
+            <button class="key-btn" data-key="F">F</button>
+            <button class="key-btn" data-key="G">G</button>
+            <button class="key-btn" data-key="H">H</button>
+            <button class="key-btn" data-key="J">J</button>
+            <button class="key-btn" data-key="K">K</button>
+            <button class="key-btn" data-key="L">L</button>
+          </div>
+          <div class="keyboard-row">
+            <button class="key-btn wide-key" data-key="ENTER">ENTER</button>
+            <button class="key-btn" data-key="Z">Z</button>
+            <button class="key-btn" data-key="X">X</button>
+            <button class="key-btn" data-key="C">C</button>
+            <button class="key-btn" data-key="V">V</button>
+            <button class="key-btn" data-key="B">B</button>
+            <button class="key-btn" data-key="N">N</button>
+            <button class="key-btn" data-key="M">M</button>
+            <button class="key-btn wide-key" data-key="BACKSPACE">&larr;</button>
+          </div>
+        </div>
+
+        <!-- Result / Definition Box -->
+        <div id="game-result-box" class="game-result-box">
+          <h3 id="game-result-title" class="game-result-title">Concept Summary</h3>
+          <p id="game-result-desc" class="game-result-desc">Definition and practical importance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Project Blueprint Generator -->
+  <section id="generator" class="generator-section">
+    <div class="container">
+      <div class="generator-card">
+        <div class="section-header" style="margin-bottom: 1.25rem;">
+          <span class="section-tag">Project Ideation</span>
+          <h2 class="section-title">AI Project Blueprint Generator</h2>
+          <p class="section-subtitle">
+            Select your grade level and domain of interest to generate an accessible starter project specification with recommended data sources and tools.
+          </p>
+        </div>
+
+        <div class="generator-form">
+          <div class="form-group">
+            <label class="form-label" for="project-stage">Grade Stage</label>
+            <select id="project-stage" class="select-control">
+              <option value="elem">Elementary (Grades 1-5)</option>
+              <option value="mid">Middle School (Grades 6-8)</option>
+              <option value="high" selected>High School (Grades 9-12)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="project-interest">Area of Interest</label>
+            <select id="project-interest" class="select-control">
+              <option value="sports">Athletics & Physical Activity</option>
+              <option value="gaming">Interactive Games & Software</option>
+              <option value="climate">Environment & Sustainability</option>
+              <option value="school" selected>Academic Study & Productivity</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="justify-content: flex-end;">
+            <button id="generate-project-btn" class="btn btn-primary" style="height: 40px; width: 100%;">
+              Generate Specification
+            </button>
+          </div>
+        </div>
+
+        <!-- Generated Result Display -->
+        <div id="generated-result-box" class="generated-result-box">
+          <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 0.25rem;">
+            Generated Specification
+          </div>
+          <h3 id="result-title" class="result-title">Project Title</h3>
+          <p id="result-desc" class="result-desc">Detailed project description.</p>
+
+          <div class="result-details">
+            <div class="result-detail-col">
+              <h5>Recommended Data Source</h5>
+              <p id="result-dataset">Data specification</p>
+            </div>
+            <div class="result-detail-col">
+              <h5>Software & Tools</h5>
+              <p id="result-tools">Software stack</p>
+            </div>
+            <div class="result-detail-col">
+              <h5>Community Channel for Feedback</h5>
+              <p id="result-channel">Channel specification</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bookmarks Drawer & Overlay -->
+  <div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
+  <aside id="bookmarks-drawer" class="bookmarks-drawer" aria-label="Saved items drawer">
+    <div class="drawer-header">
+      <div>Saved Items</div>
+      <button id="drawer-close-btn" class="drawer-close" aria-label="Close drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div id="drawer-items" class="drawer-items">
+      <!-- Injected by app.js -->
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-area" style="font-size: 1.1rem;">
+            <div class="logo-mark" style="width: 28px; height: 28px; font-size: 0.85rem;">A</div>
+            <div class="logo-text">AI<span>Launchpad</span></div>
+          </div>
+          <p>
+            An educational guide developed to help K-12 students explore machine learning, data science, and modern artificial intelligence through structured, open resources.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#stages" data-i18n="nav_pathways">Learning Pathways</a></li>
+            <li><a href="#hack-the-hood" data-i18n="nav_hackthehood">Hack the Hood</a></li>
+            <li><a href="#event" data-i18n="nav_event">First Milestone</a></li>
+            <li><a href="#communities" data-i18n="nav_communities">Communities</a></li>
+            <li><a href="#resources" data-i18n="nav_resources">Learning Catalog</a></li>
+            <li><a href="#research" data-i18n="nav_research">AI Research</a></li>
+            <li><a href="#game" data-i18n="nav_game">Daily Game</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Partner Organizations</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.hackthehood.org" target="_blank" rel="noopener noreferrer">Hack the Hood &nearr;</a></li>
+            <li><a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club &nearr;</a></li>
+            <li><a href="https://code.org/oceans" target="_blank" rel="noopener noreferrer">Code.org AI &nearr;</a></li>
+            <li><a href="https://huggingface.co" target="_blank" rel="noopener noreferrer">Hugging Face &nearr;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>AI Launchpad. Free and open educational directory for students and educators.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
